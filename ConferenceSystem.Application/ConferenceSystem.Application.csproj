@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
+    <PackageReference Include="FluentValidation" Version="$(FluentValidationPackageVersion)" />
+	  <PackageReference Include="MediatR" Version="$(MediatRPackageVersion)" />
+
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Abstractions\Abstractions.csproj" />
+    <ProjectReference Include="..\ConferenceSystem.Data\ConferenceSystem.Data.csproj" />
+    <ProjectReference Include="..\ConferenceSystem.PublishedLanguage\ConferenceSystem.PublishedLanguage.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="CommandHandlers\" />
+    <Folder Include="Validators\" />
+  </ItemGroup>
+
+</Project>

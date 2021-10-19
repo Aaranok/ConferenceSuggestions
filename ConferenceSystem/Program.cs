@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using RatingSystem.Application;
 using RatingSystem.Data;
 using RatingSystem.ExternalService;
-using RatingSystem.PublishedLanguage.Events;
 using System;
 using System.IO;
 using System.Threading;
@@ -33,13 +32,6 @@ namespace RatingSystem
             var source = new CancellationTokenSource();
             var cancellationToken = source.Token;
             services.RegisterBusinessServices(Configuration);
-            services.AddPaymentDataAccess(Configuration);
-
-            /*services.Scan(scan => scan
-                .FromAssemblyOf<ListOfAccounts>()
-                .AddClasses(classes => classes.AssignableTo<IValidator>())
-                .AsImplementedInterfaces()
-                .WithScopedLifetime());*/
 
             services.Scan(scan => scan
                 .FromAssemblyOf<SuggestionsQuery>()
@@ -52,9 +44,6 @@ namespace RatingSystem
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestPostProcessorBehavior<,>));
             services.AddScoped(typeof(IRequestPreProcessor<>), typeof(ValidationPreProcessor<>));
 
-            services.AddScopedContravariant<INotificationHandler<INotification>, AllEventsHandler>(typeof(AccountMade).Assembly);
-
-            //services.AddMediatR(new[] { typeof(ListOfAccounts).Assembly, typeof(AllEventsHandler).Assembly }); // get all IRequestHandler and INotificationHandler classes
             services.AddMediatR(new[] { typeof(SuggestionsQuery).Assembly, typeof(AllEventsHandler).Assembly });
 
             services.AddSingleton(Configuration);

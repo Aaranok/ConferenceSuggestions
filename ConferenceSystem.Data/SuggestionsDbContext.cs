@@ -1,8 +1,5 @@
-using System;
 using ConferenceSystem.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using RatingSystem.Models;
 
 #nullable disable
 
@@ -15,7 +12,6 @@ namespace RatingSystem.Data
         {
         }
 
-        public virtual DbSet<BankAccount> BankAccounts { get; set; }
         public virtual DbSet<Conference> Conferences { get; set; }
         public virtual DbSet<ConferenceXAttendee> ConferenceXAttendee { get; set; }
 

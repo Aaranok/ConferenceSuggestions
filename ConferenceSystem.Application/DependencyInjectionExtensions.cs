@@ -1,8 +1,5 @@
-using ConferencePlannerApp.Queries;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MediatR.Pipeline;
-using MediatR;
 using ConferencePlannerApp.Abstractions;
 using Microsoft.EntityFrameworkCore;
 using RatingSystem.Data;

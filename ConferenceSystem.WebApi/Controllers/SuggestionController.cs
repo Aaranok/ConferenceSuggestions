@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ConferencePlannerApp.Queries;
-using ConferenceSystem.Models;
 
 namespace Conference.Api.Controllers
 {

@@ -9,5 +9,9 @@
   <ItemGroup>
     <ProjectReference Include="..\ConferenceSystem.Models\ConferenceSystem.Models.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="Events\" />
+  </ItemGroup>
 
 </Project>

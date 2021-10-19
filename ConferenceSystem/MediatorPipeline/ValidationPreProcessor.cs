@@ -20,18 +20,6 @@ namespace RatingSystem
         {
             var context = new ValidationContext<TRequest>(request);
             
-            //var results = new List<ValidationResult>();
-            //var errors = new List<ValidationFailure>();
-            //foreach (var validator in _validators)
-            //{
-            //    var result = validator.Validate(context);
-            //    results.Add(result);
-            //    if (result.Errors != null)
-            //    {
-            //        errors.AddRange(result.Errors);
-            //    }
-            //}
-
             var failures = _validators
                 .Select(v => v.Validate(context))
                 .SelectMany(result => result.Errors)

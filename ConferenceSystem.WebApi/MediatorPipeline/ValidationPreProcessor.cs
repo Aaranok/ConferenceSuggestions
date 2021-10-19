@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
-using FluentValidation.Results;
 using MediatR.Pipeline;
 
 namespace RatingSystem.WebApi.MediatorPipeline
@@ -20,18 +19,6 @@ namespace RatingSystem.WebApi.MediatorPipeline
         public Task Process(TRequest request, CancellationToken cancellationToken)
         {
             var context = new ValidationContext<TRequest>(request);
-            
-            //var results = new List<ValidationResult>();
-            //var errors = new List<ValidationFailure>();
-            //foreach (var validator in _validators)
-            //{
-            //    var result = validator.Validate(context);
-            //    results.Add(result);
-            //    if (result.Errors != null)
-            //    {
-            //        errors.AddRange(result.Errors);
-            //    }
-            //}
 
             var failures = _validators
                 .Select(v => v.Validate(context))

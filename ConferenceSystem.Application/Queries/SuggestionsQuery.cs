@@ -41,7 +41,6 @@ namespace ConferencePlannerApp.Queries
                     .ToDictionary(x => x.Key, y => y.Count())
                     .OrderByDescending(d => d.Value)
                     .Take(suggestionsCount)
-                    //.Take(3)
                     .Select(keyValuePair => keyValuePair.Key)
                     .ToArray();
                 var list =  await _repository.GetConferencesAsync(ids, cancellationToken);
